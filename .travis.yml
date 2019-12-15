@@ -18,5 +18,5 @@ install:
 
 # We will use this once we have tests
 
-# before_script:
-#   - psql -c "CREATE DATABASE doc_search_dev;" -U postgres
+before_script:
+  - psql -c "CREATE DATABASE doc_search_dev;" -U postgres
