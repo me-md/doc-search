@@ -72,14 +72,30 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-DATABASES = {
+if 'TRAVIS' in os.environ:
+    DATABASES = {
     'default': {
+<<<<<<< HEAD
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'doc_search_dev',
+=======
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+>>>>>>> 7bda32a... Add travis.yml and requirements file
+        'NAME': 'travisci',
+        'USER': 'postgres',
+        'PASSWORD': '',
         'HOST': 'localhost',
+        'PORT': '',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'doc_search_dev',
+            'HOST': 'localhost',
+        }
+    }
+
 
 
 # Password validation
