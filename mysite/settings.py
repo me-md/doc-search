@@ -25,7 +25,7 @@ SECRET_KEY = 'rlqfpoe4q$#6sg8#%(1%repcjui9wilv46yap$ezuz)!7w6upk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ec2-3-136-45-48.us-east-2.compute.amazonaws.com']
 
 
 # Application definition
@@ -72,14 +72,26 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-DATABASES = {
+if 'TRAVIS' in os.environ:
+    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'doc_search_dev',
+        'NAME': 'travisci',
+        'USER': 'postgres',
+        'PASSWORD': '',
         'HOST': 'localhost',
+        'PORT': '',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'doc_search_dev',
+            'HOST': 'localhost',
+        }
+    }
+
 
 
 # Password validation
