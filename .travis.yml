@@ -19,10 +19,5 @@ install:
 before_script:
   - psql -c "CREATE DATABASE doc_search_test;" -U postgres
 
-<<<<<<< HEAD
 script:
   - pytest
-=======
-before_script:
-  - psql -c "CREATE DATABASE doc_search_dev;" -U postgres
->>>>>>> ec0e4e3... Add travis.yml trial
