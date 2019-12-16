@@ -8,7 +8,11 @@ def test_example():
     assert result == expected_result
 
 def test_expects():
-    array = []
-    one = 1
-    expect(array).to(be_empty)
+    array = ['1']
+    one = array[0]
+
+    expect(array).not_to(be_empty)
+
     expect(1).to(equal(1))
+
+    expect(lambda: foo).to(raise_error(NameError))
