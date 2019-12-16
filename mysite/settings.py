@@ -83,14 +83,15 @@ if 'TRAVIS' in os.environ:
         'PORT': '',
         }
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'doc_search_dev',
-            'HOST': 'localhost',
-        }
-    }
+#else:
+ #   DATABASES = {
+  #      'default': {
+   
+#         'ENGINE': 'django.db.backends.postgresql',
+ #           'NAME': 'doc_search_dev',
+  #          'HOST': 'localhost',
+   #     }
+   # }
 
 
 
