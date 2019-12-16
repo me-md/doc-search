@@ -75,11 +75,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 if 'TRAVIS' in os.environ:
     DATABASES = {
     'default': {
-<<<<<<< HEAD
         'ENGINE': 'django.db.backends.postgresql',
-=======
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
->>>>>>> 7bda32a... Add travis.yml and requirements file
         'NAME': 'travisci',
         'USER': 'postgres',
         'PASSWORD': '',
