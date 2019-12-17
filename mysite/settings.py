@@ -22,7 +22,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+if 'TRAVIS' in os.environ:
+    SECRET_KEY = "secure: gz3OZtCLQ7nBYIyL77Cqh143TjkOe5mQzvvNx30vzkx1z5BRk74YONa70WfzK4aIBO/mJzWGS/B1W8EBQYEZSJ05IL8bT73lRii1wKGhWRvTW9LuArQ570gx2kRxyXpOOEjSfLb3SqJ+5TSGffffVvUj1cxdLpuPVkPByjiaf5aNtFu4ReEMmL4TPib3BaXgq6prJKLW9hZbO65DDisdp2BTWmI0guL5g4ZWc8UU6eZH+E/nWEafRHqo9Pz7lzvFCn0KOdHL+3oVGIUbucyG0Dy+9kvNKZSD4I+W/Gzst5cAfLkMmLegYpdOjS9Ga8f/ddeq1YJxA0h5QoytJBqXSIko1q1RYc6lN9qZYIG1FKokys01NxicJjH85in7k6s/RGTiIaT9yZeABtye/F3Qf6NcSVk0/W6wrI/2ZrncBw4OLntVnxop1smOHTV6k8ASoHmnY0CDi99GbOxLYRuS7WsgjSe1012uvqPMBR/bNkS8MtePAiirqq3EWUvJrDMxOwlOz06ajpv7vCLzgc2+R5WhICEe+GHRMUENnJ1J4zDWttMoEPRKf6p8cF0ZwrNe6C2bsgmHP45K0MlJbpI94PXLFGqZkSDT56jKEB/ke+3+m7INOoVBk1HqYhsBL5sIn7Rp1+ZfiKftNsgUaS0O3XhD3YXc8GbLEV5c96LawmU="
+else:
+    SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
