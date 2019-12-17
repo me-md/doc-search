@@ -11,11 +11,12 @@ pluggy==0.13.1
 py==1.8.0
 pyparsing==2.4.5
 pytest==5.3.2
+pytest-django==3.7.0
 pytest-expect==1.1.0
+python-dotenv==0.10.3
 pytz==2019.3
 six==1.13.0
 sqlparse==0.3.0
 u-msgpack-python==2.5.2
 wcwidth==0.1.7
 zipp==0.6.0
-psycopg2
