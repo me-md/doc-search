@@ -1,23 +1,21 @@
 language: python
-
 python:
-  - 3.7.4
-
+- 3.7.4
 services: postgresql
-
+before_install:
+- export DJANGO_SETTINGS_MODULE=mysite.settings
+install:
+- pip install -r requirements.txt
+- pip install django==$DJANGO --quiet
+- pip install psycopg2 --quiet
+before_script:
+- psql -c "CREATE DATABASE doc_search_test;" -U postgres
+script:
+- pytest
 env:
   - DJANGO=3.0 DB=postgres
-
-before_install:
-  - export DJANGO_SETTINGS_MODULE=mysite.settings
-
-install:
-  - pip install -r requirements.txt
-  - pip install django==$DJANGO --quiet
-  - pip install psycopg2 --quiet
-
-before_script:
-  - psql -c "CREATE DATABASE doc_search_test;" -U postgres
-
-script:
-  - pytest
+  global:
+    BETTER_DOCTORS_KEY:
+      secure: Lup0CXqcKicSv0lc5BNgNKOANaxNkk8sQMD1JQExLfs20sg1C3Va/De/WT6ijRWIXenDEWfKMiOBiGOZDyqF69TAEDPfL6ZyLjq+z2e5RfSsOCUh8kjdHbesmw9085FcKt5iNf7p1MPtfg0LB/a0Tl3et64IA+TvzHyfoMol9tjt8/d/TzGk/H6ETsUNdAOv7apdcZHlyplYPNbVamsU0wJ09dXw4FVSg2LNWhANr4crWZAxglAHM2Yon1pKhzpmmgsvXMiiIeAjg4C664eJZ8AcPToTWCQsInuNSh/2GcbUd2vmgTz2a6JZzrj9Yq06C9+wHrv6bddo2tgxmTqsxjcx1eSCjZjR9MAYs5Ou1gIcYrrId5thQpXjxE5Dnt2n0XwFcnnUiiyUen2cuOI270c0X7TEaHvgrf19AGbN8YcrAHGlvcg/IiVr0D9StKloG1BEQyn+xQHhQUpIKXDgP4GSNZ5gxeAG9PFHA5guVfCRT9kIgLKmyhQNdbLHDE3QVvyrGfVQg+HrdzaK1CYyDdx0/nK6kH2tsiqb5po70nB0Gqm3yIMX9/iWm8HBNwVr14ED33wzE9WzqSZLgnJLAsbmrvsZ6sk9ogHUlIVKIMIOiHXGUNeOkQL+oN3A+bsX122Ddb3ToJpJW/9F1yJUmuWQVOXAY/FcNl+BdhB//3k=
+    SECRET_KEY:
+      secure: gz3OZtCLQ7nBYIyL77Cqh143TjkOe5mQzvvNx30vzkx1z5BRk74YONa70WfzK4aIBO/mJzWGS/B1W8EBQYEZSJ05IL8bT73lRii1wKGhWRvTW9LuArQ570gx2kRxyXpOOEjSfLb3SqJ+5TSGffffVvUj1cxdLpuPVkPByjiaf5aNtFu4ReEMmL4TPib3BaXgq6prJKLW9hZbO65DDisdp2BTWmI0guL5g4ZWc8UU6eZH+E/nWEafRHqo9Pz7lzvFCn0KOdHL+3oVGIUbucyG0Dy+9kvNKZSD4I+W/Gzst5cAfLkMmLegYpdOjS9Ga8f/ddeq1YJxA0h5QoytJBqXSIko1q1RYc6lN9qZYIG1FKokys01NxicJjH85in7k6s/RGTiIaT9yZeABtye/F3Qf6NcSVk0/W6wrI/2ZrncBw4OLntVnxop1smOHTV6k8ASoHmnY0CDi99GbOxLYRuS7WsgjSe1012uvqPMBR/bNkS8MtePAiirqq3EWUvJrDMxOwlOz06ajpv7vCLzgc2+R5WhICEe+GHRMUENnJ1J4zDWttMoEPRKf6p8cF0ZwrNe6C2bsgmHP45K0MlJbpI94PXLFGqZkSDT56jKEB/ke+3+m7INOoVBk1HqYhsBL5sIn7Rp1+ZfiKftNsgUaS0O3XhD3YXc8GbLEV5c96LawmU=
