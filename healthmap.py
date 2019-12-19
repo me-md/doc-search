@@ -12,7 +12,12 @@ data_pth = "./Data/"
 usa= gpd.read_file(os.path.join(data_pth, 'states.shp'))
 
 def state_plotter(states, us_map=True):
-    fig, ax = plt.subplots(figsize=(10,10))
+    fig, ax = plt.subplots(figsize=(10,8))
+    #turns the axis off
+    ax.axis('off')
+
+    #adds a title
+    ax.set_title("MeMD Diagnosis Across the US", fontdict={'fontsize': '25', 'fontweight' : '3'})
 
     if us_map:
         if 'HI' in states:
@@ -39,7 +44,7 @@ state_plotter(['LA', 'AR'])
 
 
 # usa.plot()
-plt.show(m)
+plt.show()
 
 
 
