@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'doc_search_api.apps.DocSearchApiConfig'
+    'doc_search_api',
 ]
 
 MIDDLEWARE = [
