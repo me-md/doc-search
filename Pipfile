@@ -12,8 +12,11 @@ expects = "*"
 pytest-expect = "*"
 pytest = "*"
 django = "*"
-psycopg2 = "*"
 python-dotenv = "*"
+geopandas = "*"
+matplotlib = "*"
+descartes = "*"
+pandas = "*"
 
 [requires]
 python_version = "3.7"

@@ -5,7 +5,6 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 import pandas as pd
 import os
-import folium
 # plt.rcParams['figure.figsize'] = (10,8)
 
 data_pth = "./Data/"
