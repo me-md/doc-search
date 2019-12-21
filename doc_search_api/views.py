@@ -1,8 +1,8 @@
-from django.shortcuts import render
-from django.core import serializers
+# from django.shortcuts import render
+# from django.core import serializers
 from .serializer import DocSerializer
-import json
-from http.client import HTTPResponse
+# import json
+# from http.client import HTTPResponse
 from doc_search_api.services.better_doctor_service import DocService
 
 def doctor_data(self, **kwargs):
