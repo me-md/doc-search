@@ -9,14 +9,13 @@ verify_ssl = true
 django-rest = "*"
 djangorestframework = "*"
 expects = "*"
+gunicorn = "*"
 pytest-expect = "*"
 pytest = "*"
 django = "*"
 python-dotenv = "*"
-geopandas = "*"
-matplotlib = "*"
-descartes = "*"
-pandas = "*"
+django-heroku = "*"
+
 
 [requires]
 python_version = "3.7"
