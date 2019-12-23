@@ -19,7 +19,10 @@ class Doctor(models.Model):
         result['city'] = data['practices'][0]['visit_address']['city']
         result['state'] = data['practices'][0]['visit_address']['state']
         result['street'] = data['practices'][0]['visit_address']['street']
-        # result['street2'] = data['practices'][0]['visit_address']['street2']
+        if 'street2' in data['practices'][0]['visit_address']:
+            result['street2'] = data['practices'][0]['visit_address']['street2']
+        else:
+            result['street2'] = 'N/A'
         result['zip'] = data['practices'][0]['visit_address']['zip']
         result['uid'] = data['practices'][0]['uid']
         result['accepts_new_patients'] = data['practices'][0]['accepts_new_patients']
@@ -29,12 +32,18 @@ class Doctor(models.Model):
     def load_profile(self, data):
         result = {}
         result['first_name'] = data['profile']['first_name']
-        # result['middle_name'] = data['profile']['middle_name']
+        if 'middle_name' in data['profile']:
+            result['middle_name'] = data['profile']['middle_name']
+        else:
+            result['middle_name'] = 'N/A'
         result['last_name'] = data['profile']['last_name']
         result['title'] = data['profile']['title']
         result['school'] = data['educations']
         result['image_url'] = data['profile']['image_url']
-        # result['gender'] = data['profile']['gender']
+        if 'gender' in data['profile']:
+            result['gender'] = data['profile']['gender']
+        else:
+            result['gender'] = 'N/A'
         result['bio'] = data['profile']['bio']
         return result
 
