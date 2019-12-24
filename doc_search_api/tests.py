@@ -2,7 +2,7 @@ from django.urls import reverse
 from rest_framework.test import APITestCase, APIClient
 from rest_framework.views import status
 from .models import Provider
-from .serializers import ProviderSerializer
+from .serializers import ProvidersSerializer
 
 
 class BaseViewTest(APITestCase):
@@ -27,6 +27,6 @@ class GetAllProviderTest(BaseViewTest):
             reverse("providers-all", kwargs={"version": "v1"})
         )
         expected = Provider.objects.all()
-        serialized = SongsSerializer(expected, many=True)
+        serialized = ProvidersSerializer(expected, many=True)
         self.assertEqual(response.data, serialized.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)

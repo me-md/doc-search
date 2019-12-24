@@ -20,4 +20,4 @@ class DocSerializer():
 class ProvidersSerializer(serializers.ModelSerializer):
     class Meta:
         model = Provider
-        fields = {'UID', 'Name'}
+        fields = ('UID', 'Name')
