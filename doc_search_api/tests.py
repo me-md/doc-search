@@ -24,7 +24,7 @@ class GetAllProviderTest(BaseViewTest):
 
     def test_get_all_providers(self):
         response = self.client.get(
-            reverse("providers-all", kwargs={"version": "v1"})
+            reverse("providers-all")
         )
         expected = Provider.objects.all()
         serialized = ProvidersSerializer(expected, many=True)
