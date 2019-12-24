@@ -18,5 +18,6 @@ django-heroku = "*"
 pytest-env = "*"
 pytest-dotenv = "*"
 
+
 [requires]
 python_version = "3.7"
