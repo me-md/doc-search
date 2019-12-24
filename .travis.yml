@@ -22,4 +22,5 @@ before_script:
   - psql -c "CREATE DATABASE doc_search_test;" -U postgres
 
 script:
-  - pytest
+  # - pytest
+  - python manage.py test
