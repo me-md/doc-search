@@ -4,8 +4,12 @@ from django.http import JsonResponse
 
 def index(request):
     location = request.GET['location'] if 'location' in request.GET else None
-    if location:
+    provider = request.GET['provider'] if 'provider' in request.GET else None
+    if location and provider:
         data = DoctorsFacade().doctors(location)
-        return doctors(data)
+        return doctors(data, provider)
+    elif location:
+        data = DoctorsFacade().doctors(location)
+        return doctors(data, None)
     else:
         return JsonResponse({'error': 'Must Supply a location in query params.'})
