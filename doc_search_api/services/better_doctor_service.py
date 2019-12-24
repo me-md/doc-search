@@ -3,7 +3,6 @@ import http.client
 
 
 class DocService:
-
     def all_docs(self, location):
         key = os.getenv('BETTER_DOCTORS_KEY')
         connection = http.client.HTTPConnection('api.betterdoctor.com')
