@@ -11,7 +11,7 @@ env:
   - BUILD_ON_TRAVIS=true
 
 before_install:
-  - export DJANGO_SETTINGS_MODULE=mysite.settings
+  - export DJANGO_SETTINGS_MODULE=doc_search.settings
 
 install:
   - pip install -r requirements.txt
