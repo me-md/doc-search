@@ -1,8 +1,8 @@
 from django.urls import reverse
 from rest_framework.test import APITestCase, APIClient
 from rest_framework.views import status
-from .models import Provider
-from .serializers import ProvidersSerializer
+from doc_search_api.models import Provider
+from doc_search_api.serializers import ProvidersSerializer
 
 
 class BaseViewTest(APITestCase):
