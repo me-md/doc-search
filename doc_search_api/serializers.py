@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .models import Provider
 import json
 from doc_search_api.objects.doctor import Doctor
-from doc_search_api.formatters.doctors_formatter import DoctorFormatter
+from doc_search_api.formatters.doctors_formatter import DoctorsFormatter
 
 class DocSerializer():
     def doctors(doc_data, provider):
@@ -15,7 +15,7 @@ class DocSerializer():
                     docs.append(Doctor(doc))
             else:
                 docs.append(Doctor(doc))
-        return HttpResponse(DoctorFormatter().format(docs))
+        return HttpResponse(DoctorsFormatter().format(docs))
 
 class ProvidersSerializer(serializers.ModelSerializer):
     class Meta:
