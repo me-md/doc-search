@@ -20,6 +20,7 @@ class DoctorFormatter:
         else:
             result['street2'] = 'N/A'
         result['zip'] = data['practices'][0]['visit_address']['zip']
+        result['phone'] = data['practices'][0]['phones'][0]['number']
         result['uid'] = data['practices'][0]['uid']
         result['accepts_new_patients'] = data['practices'][0]['accepts_new_patients']
         result['insurance_uids'] = data['practices'][0]['insurance_uids']
