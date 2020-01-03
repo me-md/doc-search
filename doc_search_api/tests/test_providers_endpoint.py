@@ -1,23 +1,23 @@
 from django.urls import reverse
 from rest_framework.test import APITestCase, APIClient
 from rest_framework.views import status
-from .models import Provider
-from .serializers import ProvidersSerializer
+from doc_search_api.models import Provider
+from doc_search_api.serializers import ProvidersSerializer
 
 
 class BaseViewTest(APITestCase):
     client = APIClient()
 
     @staticmethod
-    def create_provider(uid="", name=""):
-        if uid != "" and name != "":
-            Provider.objects.create(UID=uid, Name=name)
+    def create_provider(uid="", name="", nick_name=""):
+        if uid != "" and name != "" and nick_name != "":
+            Provider.objects.create(uid=uid, name=name, nick_name=nick_name)
 
     def setUp(self):
-        self.create_provider("EDINA", "edina")
-        self.create_provider("BCBS", "bcbs")
-        self.create_provider("MEDICARE", "medicare")
-        self.create_provider("MEDICAID", "medicaid")
+        self.create_provider("EDINA", "edina", "edina")
+        self.create_provider("BCBS", "bcbs", "bcbs")
+        self.create_provider("MEDICARE", "medicare", "medicare")
+        self.create_provider("MEDICAID", "medicaid", "medicaid")
 
 
 class GetAllProviderTest(BaseViewTest):

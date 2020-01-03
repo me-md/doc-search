@@ -1,6 +1,6 @@
 import json
 
-class DoctorFormatter:
+class DoctorsFormatter:
     def format(self, docs):
         response = []
         for doc in docs:
