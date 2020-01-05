@@ -20,3 +20,13 @@ class GetAllDoctorsTest(BaseViewTest):
         expect(data[0]['practice']['location']).to(equal('co-denver'))
         expect(data[0]['practice']['lat']).to(equal(39.7392))
         expect(data[0]['practice']['lon']).to(equal(-104.94187))
+
+    def test_doctors_endpoint_requires_location(self):
+        response = self.client.get(
+            reverse('doctors-all')
+        )
+        expect(response.status_code).to(equal(200))
+
+        data = json.loads(response.content)
+
+        expect(data['error']).to(equal('Must Supply a location in query params.'))
