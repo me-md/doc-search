@@ -16,3 +16,5 @@ class ProviderTest(TestCase):
         p = self.create_provider()
         self.assertTrue(isinstance(p, Provider))
         self.assertEqual('fake uid', p.uid)
+        self.assertEqual('fake name', p.name)
+        self.assertEqual('fake nick_name', p.nick_name)
