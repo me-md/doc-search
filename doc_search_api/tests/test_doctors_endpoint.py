@@ -8,11 +8,15 @@ class BaseViewTest(APITestCase):
 
 class GetAllDoctorsTest(BaseViewTest):
 
-    def test_endpoint_requires_location(self):
+    def test_doctors_endpoint(self):
         response = self.client.get(
-            reverse("doctors-all")
+            reverse("doctors-all"), {'location': 'co-denver'}
         )
         expect(response.status_code).to(equal(200))
+
         data = json.loads(response.content)
-        expect(data['error']).to(equal('Must Supply a location in query params.'))
-        print(data)
+
+        expect(data[0]['practice']['name']).to(equal('Esther Langmack, MD'))
+        expect(data[0]['practice']['location']).to(equal('co-denver'))
+        expect(data[0]['practice']['lat']).to(equal(39.7392))
+        expect(data[0]['practice']['lon']).to(equal(-104.94187))
