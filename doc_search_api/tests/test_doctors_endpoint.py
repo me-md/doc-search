@@ -25,6 +25,17 @@ class GetAllDoctorsTest(BaseViewTest):
         expect(data[0]['profile']['middle_name']).to(equal('L'))
         expect(data[0]['profile']['last_name']).to(equal('Langmack'))
 
+    def test_doctors_with_provider(self):
+        response = self.client.get(
+            reverse('doctors-all'), { 'location': 'co-denver', 'provider': 'aetna-aetnachoiceposii' }
+        )
+
+        expect(response.status_code).to(equal(200))
+
+        data = json.loads(response.content)
+
+        expect(data[0]['practice']['name']).to(equal('Alan Hanson, MD'))
+
     def test_doctors_endpoint_requires_location(self):
         response = self.client.get(
             reverse('doctors-all')
