@@ -1,4 +1,4 @@
-from mysite.settings import *
+from doc_search.settings import *
 
 DATABASES = {
     'default': {

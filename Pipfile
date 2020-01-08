@@ -9,10 +9,15 @@ verify_ssl = true
 django-rest = "*"
 djangorestframework = "*"
 expects = "*"
+gunicorn = "*"
 pytest-expect = "*"
 pytest = "*"
 django = "*"
-psycopg2 = "*"
+python-dotenv = "*"
+django-heroku = "*"
+pytest-env = "*"
+pytest-dotenv = "*"
+
 
 [requires]
 python_version = "3.7"
