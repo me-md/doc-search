@@ -2,7 +2,7 @@
 
 **Production URL** = https://memd-doc-search.herokuapp.com
 
-This API contains two endpoints that support the MeMD application. The **Doctors** endpoint supplies a list of doctors for a given location. The **Providers** endpoint supplies a list of insurance plans with UIDs that can be supplied to the **Doctors** endpoint.
+This API contains two endpoints that support the MeMD application (https://github.com/me-md/me-md). The **Doctors** endpoint supplies a list of doctors for a given location. The **Providers** endpoint supplies a list of insurance plans with UIDs that can be supplied to the **Doctors** endpoint.
 
 ## Endpoints 
 
