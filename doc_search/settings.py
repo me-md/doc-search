@@ -83,7 +83,6 @@ WSGI_APPLICATION = 'doc_search.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 if os.getenv('BUILD_ON_TRAVIS', None):
     SECRET_KEY = "SecretKeyForUseOnTravis"
-    print(SECRET_KEY)
     DEBUG = False
     TEMPLATE_DEBUG = True
 

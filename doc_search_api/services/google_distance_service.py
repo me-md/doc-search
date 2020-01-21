@@ -16,7 +16,6 @@ class GoogleDistanceService:
     def distances(self, lat, long, destinations):
         key = os.getenv('GOOGLE_API_KEY')
         destination_coords = self.load_destinations(destinations)
-        print(destination_coords)
         connection = http.client.HTTPSConnection('maps.googleapis.com')
         connection.request('GET', f"/maps/api/distancematrix/json?origins={lat},{long}&key={key}&destinations={destination_coords}&units=imperial")
         response = connection.getresponse()
