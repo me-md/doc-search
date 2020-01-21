@@ -47,7 +47,7 @@ class GetAllDoctorsTest(BaseViewTest):
         expect(data['error']).to(equal('Must Supply a location in query params.'))
 
     def test_doctors_endpoint_can_filter_by_distance(self):
-        response = self.get(
+        response = self.client.get(
             reverse('doctors-all'), { 'location': 'co-denver', 'lat': 40.714224, 'lon': -73.961452 }
             )
 
@@ -55,4 +55,4 @@ class GetAllDoctorsTest(BaseViewTest):
 
         data = json.loads(response.content)
 
-        expect(data[0]['practice']['distance']).to(equal("1,784 mi"))
+        expect(data[0]['practice']['distance']).to(equal("1,779 mi"))
