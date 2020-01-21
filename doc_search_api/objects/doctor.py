@@ -3,9 +3,9 @@ from doc_search_api.formatters.doctor_formatter import DoctorFormatter
 
 class Doctor(models.Model):
 
-    def __init__(self, data):
+    def __init__(self, data, coords):
         self.name = 'Doctor Data'
-        self.formatter = DoctorFormatter(data)
+        self.formatter = DoctorFormatter(data, coords)
         self.practice = self.formatter.practice()
         self.profile = self.formatter.profile()
 
