@@ -55,4 +55,4 @@ class GetAllDoctorsTest(BaseViewTest):
 
         data = json.loads(response.content)
 
-        expect(data[0]['practice']['distance']).to(equal("1,779 mi"))
+        expect(data[0]['practice']['distance']).to(equal("1,775 mi"))
