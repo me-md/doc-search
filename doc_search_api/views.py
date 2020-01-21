@@ -2,6 +2,7 @@ from .serializers import DocSerializer
 from .serializers import ProvidersSerializer
 from .models import Provider
 from rest_framework import generics
+import json
 
 def doctors(data, provider, coords):
     return DocSerializer.doctors(data, provider, coords)

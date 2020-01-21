@@ -8,4 +8,5 @@ class DoctorsFormatter:
             result['practice'] = doc.practice
             result['profile'] = doc.profile
             response.append(result)
-        return json.dumps(response)
+        sorted_distance = sorted(response, key=lambda d: d['practice']['distance'])
+        return json.dumps(sorted_distance)
