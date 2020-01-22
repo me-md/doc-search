@@ -15,4 +15,6 @@ def index(request):
         data = DoctorsFacade().doctors(location)
         return doctors(data, None, coords, location)
     else:
-        return JsonResponse({'error': 'Must Supply a location in query params.'})
+        return JsonResponse(
+            {'error': 'Must Supply a location in query params.'}
+        )
