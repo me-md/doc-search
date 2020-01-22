@@ -6,7 +6,7 @@ from doc_search_api.objects.doctor import Doctor
 from doc_search_api.formatters.doctors_formatter import DoctorsFormatter
 
 class DocSerializer():
-    def doctors(doc_data, provider, coords):
+    def doctors(doc_data, provider, coords, location):
         docs = []
         format = json.loads(doc_data)
         for doc in format['data']:
@@ -15,7 +15,7 @@ class DocSerializer():
                     docs.append(Doctor(doc, coords))
             else:
                 docs.append(Doctor(doc, coords))
-        return HttpResponse(DoctorsFormatter().format(docs))
+        return HttpResponse(DoctorsFormatter().format(docs, location))
 
 class ProvidersSerializer(serializers.ModelSerializer):
     class Meta:

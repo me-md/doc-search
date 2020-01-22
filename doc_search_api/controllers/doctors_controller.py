@@ -10,9 +10,9 @@ def index(request):
     coords = [lat, lon] if lat and lon else None
     if location and provider:
         data = DoctorsFacade().doctors(location)
-        return doctors(data, provider, coords)
+        return doctors(data, provider, coords, location)
     elif location:
         data = DoctorsFacade().doctors(location)
-        return doctors(data, None, coords)
+        return doctors(data, None, coords, location)
     else:
         return JsonResponse({'error': 'Must Supply a location in query params.'})
