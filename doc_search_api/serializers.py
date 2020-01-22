@@ -12,9 +12,9 @@ class DocSerializer():
         for doc in format['data']:
             if provider is not None:
                 if provider in doc['practices'][0]['insurance_uids']:
-                    docs.append(Doctor(doc, coords))
+                    docs.append(Doctor(doc))
             else:
-                docs.append(Doctor(doc, coords))
+                docs.append(Doctor(doc))
         return HttpResponse(DoctorsFormatter(coords).format(docs, location))
 
 class ProvidersSerializer(serializers.ModelSerializer):

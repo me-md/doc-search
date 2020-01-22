@@ -9,7 +9,7 @@ class DoctorsFormatter:
         response = []
         coordinates = []
         for doc in docs:
-            if doc.practice['location'] == location:
+            if location in doc.practice['location']:
                 result = {}
                 result['practice'] = doc.practice
                 result['profile'] = doc.profile

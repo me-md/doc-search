@@ -14,7 +14,6 @@ def index(request):
         return doctors(data, provider, coords, location)
     elif location:
         data = DoctorsFacade().doctors(location)
-        response = doctors(data, None, coords, location)
         return doctors(data, None, coords, location)
     else:
         return JsonResponse(
