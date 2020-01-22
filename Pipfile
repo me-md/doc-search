@@ -17,7 +17,7 @@ python-dotenv = "*"
 django-heroku = "*"
 pytest-env = "*"
 pytest-dotenv = "*"
-
+pybrake = "*"
 
 [requires]
 python_version = "3.7"
