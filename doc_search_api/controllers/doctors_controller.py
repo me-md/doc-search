@@ -5,7 +5,7 @@ from datetime import datetime
 
 def index(request):
     start = datetime.now()
-    start_time = start.strftime("%S")
+    start_time = start.strftime("%S.%f")
     print("Start", start_time)
 
     location = request.GET['location'] if 'location' in request.GET else None
@@ -21,7 +21,7 @@ def index(request):
         response = doctors(data, None, coords, location)
         # return doctors(data, None, coords, location)
         end = datetime.now()
-        end_time = end.strftime("%S")
+        end_time = end.strftime("%S.%f")
         print("Stop!", end_time)
 
         return response
