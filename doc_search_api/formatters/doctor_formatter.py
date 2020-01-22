@@ -18,18 +18,18 @@ class DoctorFormatter:
         result['location'] = data['practices'][0]['location_slug']
         result['lat'] = data['practices'][0]['lat']
         result['lon'] = data['practices'][0]['lon']
-        if self.coords:
-            distance = json.loads(
-                GoogleDistanceService().distances(
-                self.lat,
-                self.lon,
-                [[data['practices'][0]['lat'], data['practices'][0]['lon']]]
-                )
-            )
-            result['distance'] =
-                distance['rows'][0]['elements'][0]['distance']['text']
-        else:
-            result['distance'] = 'N/A'
+        # if self.coords:
+        #     distance = json.loads(
+        #         GoogleDistanceService().distances(
+        #         self.lat,
+        #         self.lon,
+        #         [[data['practices'][0]['lat'], data['practices'][0]['lon']]]
+        #         )
+        #     )
+        #     result['distance'] =
+        #         distance['rows'][0]['elements'][0]['distance']['text']
+        # else:
+        #     result['distance'] = 'N/A'
         result['city'] = data['practices'][0]['visit_address']['city']
         result['state'] = data['practices'][0]['visit_address']['state']
         result['street'] = data['practices'][0]['visit_address']['street']
@@ -40,8 +40,7 @@ class DoctorFormatter:
         result['zip'] = data['practices'][0]['visit_address']['zip']
         result['phone'] = data['practices'][0]['phones'][0]['number']
         result['uid'] = data['practices'][0]['uid']
-        result['accepts_new_patients'] =
-            data['practices'][0]['accepts_new_patients']
+        result['accepts_new_patients'] = data['practices'][0]['accepts_new_patients']
         result['insurance_uids'] = data['practices'][0]['insurance_uids']
         return result
 

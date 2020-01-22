@@ -15,7 +15,7 @@ class DocSerializer():
                     docs.append(Doctor(doc, coords))
             else:
                 docs.append(Doctor(doc, coords))
-        return HttpResponse(DoctorsFormatter().format(docs, location))
+        return HttpResponse(DoctorsFormatter(coords).format(docs, location))
 
 class ProvidersSerializer(serializers.ModelSerializer):
     class Meta:
