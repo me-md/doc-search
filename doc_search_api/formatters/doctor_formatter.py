@@ -1,12 +1,8 @@
-from doc_search_api.services.google_distance_service import GoogleDistanceService
 import json
 
 class DoctorFormatter:
-    def __init__(self, data, coords):
+    def __init__(self, data):
         self.data = data
-        self.coords = coords if coords else None
-        self.lat = coords[0] if coords else None
-        self.lon = coords[1] if coords else None
 
     def __str__(self):
         return 'Doctor Formatter'
@@ -18,11 +14,6 @@ class DoctorFormatter:
         result['location'] = data['practices'][0]['location_slug']
         result['lat'] = data['practices'][0]['lat']
         result['lon'] = data['practices'][0]['lon']
-        if self.coords:
-            distance = json.loads(GoogleDistanceService().distances(self.lat, self.lon, [[data['practices'][0]['lat'], data['practices'][0]['lon']]]))
-            result['distance'] = distance['rows'][0]['elements'][0]['distance']['text']
-        else:
-            result['distance'] = 'N/A'
         result['city'] = data['practices'][0]['visit_address']['city']
         result['state'] = data['practices'][0]['visit_address']['state']
         result['street'] = data['practices'][0]['visit_address']['street']
