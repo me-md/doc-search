@@ -6,7 +6,7 @@ This API contains two endpoints that support the MeMD application (https://githu
 
 ## Endpoints 
 
-### 1. `api/v1/doctors?location=<LOCATION>&provider=<UID>`
+### 1. `api/v1/doctors?location=<LOCATION>&provider=<UID>&lat=<LATTITUDE>&long=<LONGITUDE>`
 * This endpoint returns a list of doctors for a given location
 
 **REQUIREMENTS**
@@ -14,6 +14,7 @@ This API contains two endpoints that support the MeMD application (https://githu
 * locations for states must be provided in Postal Abbrievation format i.e (Colorado = 'co', Florida = 'fl')
 * locations for cities must include state abbrievation i.e (Denver = 'co-denver', Tama = 'fl-tampa')
 * The Providers query param is optional, when using the Providers parameters you must use a valid UID.
+* The lat and lon query parameters are optional, if included they will show the distance to each doctors. Doctors will be sorted by closest to furthest away.
 * Provider UIDs can be obtained through the `api/v1/providers` endpoint.
 
 **Example Request**
@@ -29,6 +30,7 @@ This API contains two endpoints that support the MeMD application (https://githu
       "lon": -104.898461,
       "city": "Denver",
       "state": "CO",
+      "distance": '12mi',
       "street": "130 Rampart Way",
       "street2": "Ste 300B",
       "zip": "80230",
