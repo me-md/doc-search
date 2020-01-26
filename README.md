@@ -6,7 +6,7 @@ This API contains two endpoints that support the MeMD application (https://githu
 
 ## Endpoints 
 
-### 1. `api/v1/doctors?location=<LOCATION>&provider=<UID>&lat=<LATTITUDE>&long=<LONGITUDE>`
+### 1. `api/v1/doctors?location=<LOCATION>&provider=<UID>&lat=<LATTITUDE>&lon=<LONGITUDE>`
 * This endpoint returns a list of doctors for a given location
 
 **REQUIREMENTS**
