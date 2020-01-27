@@ -27,7 +27,9 @@ class DoctorsFormatter:
 
             sorted_distance = sorted(
                 response,
-                key=lambda doc: float(doc['practice']['distance'][0:-2])
+                key=lambda doc: float(
+                    doc['practice']['distance'][0:-3].replace(',', '')
+                )
             )
             for doc in response:
                 print(doc['practice']['name'])
