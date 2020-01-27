@@ -2,8 +2,8 @@ import json
 from doc_search_api.services.google_distance_service import GoogleDistanceService
 
 class DoctorsFormatter:
-    def __init__(self, coords):
-        self.coords = coords if coords else None
+    def __init__(self, coords = None):
+        self.coords = coords
 
     def format(self, docs, location):
         response = []
