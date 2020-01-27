@@ -31,8 +31,6 @@ class DoctorsFormatter:
                     doc['practice']['distance'][0:-3].replace(',', '')
                 )
             )
-            for doc in response:
-                print(doc['practice']['name'])
 
             return json.dumps(sorted_distance)
         return json.dumps(response)
