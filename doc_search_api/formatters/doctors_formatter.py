@@ -14,9 +14,10 @@ class DoctorsFormatter:
                 result['practice'] = doc.practice
                 result['profile'] = doc.profile
                 response.append(result)
-                coordinates.append(
-                    [doc.practice['lat'], doc.practice['lon']]
-                )
+                if self.coords:
+                    coordinates.append(
+                        [doc.practice['lat'], doc.practice['lon']]
+                    )
 
         if self.coords:
             distances = json.loads(GoogleDistanceService().distances(self.coords[0], self.coords[1], coordinates))
@@ -26,8 +27,10 @@ class DoctorsFormatter:
 
             sorted_distance = sorted(
                 response,
-                key=lambda d: d['practice']['distance']
+                key=lambda doc: float(doc['practice']['distance'][0:-2])
             )
+            for doc in response:
+                print(doc['practice']['name'])
 
             return json.dumps(sorted_distance)
         return json.dumps(response)
